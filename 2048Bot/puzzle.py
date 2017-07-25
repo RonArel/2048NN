@@ -47,7 +47,7 @@ class GameGrid(Frame):
 
         #self.mainloop()
         while True:
-            self.bot_down(GetBotMove())
+            self.bot_down(GetBotMove(self.matrix))
             self.update_idletasks()
             self.update()
 
@@ -123,4 +123,7 @@ class GameGrid(Frame):
             index = (self.gen(), self.gen())
         self.matrix[index[0]][index[1]] = 2
 
-gamegrid = GameGrid()
+try:
+    gamegrid = GameGrid()
+except TclError as eX:
+    print(eX)

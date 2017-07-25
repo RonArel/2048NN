@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/2048Bot.iml" filepath="$PROJECT_DIR$/.idea/2048Bot.iml" />
-      <module fileurl="file://C:\Users\forlo\Documents\Python\2048Bot\.idea\GeoNeuralNet.iml" filepath="C:\Users\forlo\Documents\Python\2048Bot\.idea\GeoNeuralNet.iml" />
     </modules>
   </component>
 </project>

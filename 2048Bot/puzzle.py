@@ -2,6 +2,7 @@ from tkinter import *
 from logic import *
 from random import *
 from bot import *
+import bot
 
 SIZE = 500
 GRID_LEN = 4
@@ -102,9 +103,11 @@ class GameGrid(Frame):
                     self.grid_cells[1][1].configure(text="You", bg=BACKGROUND_COLOR_CELL_EMPTY)
                     self.grid_cells[1][2].configure(text="Lose!", bg=BACKGROUND_COLOR_CELL_EMPTY)
 
+
     def bot_down(self, key):
-        if key in self.commands:
-            self.matrix, done = self.commands[key](self.matrix)
+
+        if GetRandMove() in self.commands:
+            self.matrix, done = self.commands[GetRandMove()](self.matrix)
             if done:
                 self.matrix = add_two(self.matrix)
                 self.update_grid_cells()
@@ -127,3 +130,4 @@ try:
     gamegrid = GameGrid()
 except TclError as eX:
     print(eX)
+

@@ -35,8 +35,11 @@ def GetBotMove(grid):
                         recordedMoves.append((((maxVals[j])(maxVals[j + 1])), randMove, 0))
                         return randMove
             else:
-                return GetRandMove()
-        break
+                if(maximum > 3):
+                    maximum /= 2
+                else:
+                    break
+        return GetRandMove()
 
 def GetRandMove():
     sleep(0.1)

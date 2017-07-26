@@ -46,7 +46,7 @@ def GetBotMove(grid):
             i += 1
 
 def GetRandMove():
-    sleep(0.1)
+    sleep(0)
     global moves
     rand = randint(0, 3)
     return moves[rand]

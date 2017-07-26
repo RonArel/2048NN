@@ -150,7 +150,10 @@ def merge(mat):
 
 
 def up(game):
+<<<<<<< HEAD
+=======
         #print("up")
+>>>>>>> 985637f1473ad0e4cf3f2bedb850de679b889055
         # return matrix after shifting up
         game=transpose(game)
         game,done=cover_up(game)
@@ -162,7 +165,11 @@ def up(game):
         return (game,done)
 
 def down(game):
+<<<<<<< HEAD
+
+=======
         #print("down")
+>>>>>>> 985637f1473ad0e4cf3f2bedb850de679b889055
         game=reverse(transpose(game))
         game,done=cover_up(game)
         temp=merge(game)
@@ -173,7 +180,11 @@ def down(game):
         return (game,done)
 
 def left(game):
+<<<<<<< HEAD
+
+=======
        #print("left")
+>>>>>>> 985637f1473ad0e4cf3f2bedb850de679b889055
         # return matrix after shifting left
         game,done=cover_up(game)
         temp=merge(game)
@@ -183,7 +194,11 @@ def left(game):
         return (game,done)
 
 def right(game):
+<<<<<<< HEAD
+
+=======
         #print("right")
+>>>>>>> 985637f1473ad0e4cf3f2bedb850de679b889055
         # return matrix after shifting right
         game=reverse(game)
         game,done=cover_up(game)

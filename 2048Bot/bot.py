@@ -7,7 +7,7 @@ recordedMoves = []
 currentMove = 0
 randMoveGlobal = ""
 def GetBotMove(grid):
-    #binaryArray = zeros(4,4)
+    binaryArray = grid
     tempTiles = []
     tiles = []
     for item in grid:
@@ -24,8 +24,26 @@ def GetBotMove(grid):
         tiles.remove(0)
     i = 0
     while True:
-        index =
-        return GetRandMove()
+        for item in binaryArray:
+            for num in item:
+                num -= tiles[i] - 1
+        sumX = sum(binaryArray, axis=1)
+        sumY = sum(binaryArray, axis=0)
+        print(binaryArray)
+        if(2 in sumX):
+            lSumX = []
+            for item in sumX:
+                lSumX.append(item)
+            lSumX.index(2)
+        elif(2 in sumY):
+            lSumY = []
+            for item in sumY:
+                lSumY.append(item)
+            lSumY.index(2)
+        elif(i > len(tiles) - 2):
+            return GetRandMove()
+        else:
+            i += 1
 
 def GetRandMove():
     sleep(0.1)
@@ -34,17 +52,7 @@ def GetRandMove():
     return moves[rand]
 
 def UpdateReward(reward):
-    global randMoveGlobal
-    global currentMove
-    for item in recordedMoves:
-        if(item[0] == randMoveGlobal):
-            if(item[3] < reward):
-                item[3] = reward
-                item[1] = randMoveGlobal
-            break
-    else:
-        recordedMoves.append((currentMove, randMoveGlobal, 0, reward))
-    randMoveGlobal = ""
+    pass
 
 
 

@@ -128,6 +128,9 @@ class GameGrid(Frame):
             index = (self.gen(), self.gen())
         self.matrix[index[0]][index[1]] = 2
 
+def UpdateTM(num):
+    currentTilesMatched = num
+
 try:
     gamegrid = GameGrid()
 except TclError as eX:

@@ -7,51 +7,24 @@ recordedMoves = []
 currentMove = 0
 randMoveGlobal = ""
 def GetBotMove(grid):
-    maxlist = []
-    for item in range(3):
-        maxlist.append(max(grid[item]))
-    maximum = max(maxlist)
+    #binaryArray = zeros(4,4)
+    tempTiles = []
+    tiles = []
+    for item in grid:
+        for num in item:
+            tempTiles.append(num)
+    while len(tempTiles) > 0:
+        tempMax = max(tempTiles)
+        tiles.append(tempMax)
+        tempTiles.remove(tempMax)
+    for item in range(8):
+        if(2 ** item in tiles and item != 0):
+            tiles.remove(2**item)
+    while 0 in tiles:
+        tiles.remove(0)
+    i = 0
     while True:
-        maxVals = []
-        x = 0
-        for i in grid:
-            if(maximum in i):
-                val = argwhere(maximum)
-                maxVals.append((x, val))
-            x += 1
-        for j in range(len(maxVals) - 1):
-            if(maxVals[j][0] == maxVals[j + 1][0]):
-                for item in recordedMoves:
-                    if(item[0] == ((maxVals[j])(maxVals[j + 1]))):
-                        randnum = randint(item[2])
-                        if(randnum == 0):
-                            item[2] += 1
-                            return item[1]
-                        else:
-                            return GetRandMove()
-                    else:
-                        randMove = GetRandMove()
-                        global randMoveGlobal
-                        # recordedMoves.append((((maxVals[j])(maxVals[j + 1])), randMove, 0, 0))
-                        randMoveGlobal = randMove
-                        global currentMove
-                        currentMove = ((maxVals[j])(maxVals[j + 1]))
-                        return randMove
-            elif(maxVals[j][1] == maxVals[j + 1][1]):
-                for item in recordedMoves:
-                    if(item[0] == (maxVals[j])(maxVals[j + 1])):
-                        return item[1]
-                    else:
-                        randMove = GetRandMove()
-                        #recordedMoves.append((((maxVals[j])(maxVals[j + 1])), randMove, 0, 0))
-                        randMoveGlobal = randMove
-                        currentMove = ((maxVals[j])(maxVals[j + 1]))
-                        return randMove
-            else:
-                if(maximum > 3):
-                    maximum /= 2
-                else:
-                    break
+        index =
         return GetRandMove()
 
 def GetRandMove():

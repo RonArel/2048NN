@@ -129,11 +129,17 @@ class GameGrid(Frame):
         self.matrix[index[0]][index[1]] = 2
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 gamegrid = GameGrid()
 
 
 
 =======
+=======
+def UpdateTM(num):
+    currentTilesMatched = num
+
+>>>>>>> 985637f1473ad0e4cf3f2bedb850de679b889055
 try:
     gamegrid = GameGrid()
 except TclError as eX:

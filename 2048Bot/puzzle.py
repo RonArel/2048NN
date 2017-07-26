@@ -126,8 +126,7 @@ class GameGrid(Frame):
             index = (self.gen(), self.gen())
         self.matrix[index[0]][index[1]] = 2
 
-try:
-    gamegrid = GameGrid()
-except TclError as eX:
-    print(eX)
+gamegrid = GameGrid()
+
+
 

@@ -142,6 +142,8 @@ def merge(mat):
          for j in range(3):
              if mat[i][j]==mat[i][j+1] and mat[i][j]!=0:
                  mat[i][j]*=2
+                 global currentTilesMatched
+                 currentTilesMatched += mat[i][j]
                  mat[i][j+1]=0
                  done=True
     return (mat,done)

@@ -2,7 +2,6 @@ from tkinter import *
 from logic import *
 from random import *
 from bot import *
-import bot
 
 SIZE = 500
 GRID_LEN = 4
@@ -17,6 +16,8 @@ CELL_COLOR_DICT = {2: "#776e65", 4: "#776e65", 8: "#f9f6f2", 16: "#f9f6f2", \
                    32: "#f9f6f2", 64: "#f9f6f2", 128: "#f9f6f2", 256: "#f9f6f2", \
                    512: "#f9f6f2", 1024: "#f9f6f2", 2048: "#f9f6f2"}
 FONT = ("Verdana", 40, "bold")
+
+currentTilesMatched = 0
 
 KEY_UP_ALT = "\'\\uf700\'"
 KEY_DOWN_ALT = "\'\\uf701\'"
@@ -51,6 +52,9 @@ class GameGrid(Frame):
             self.bot_down(GetBotMove(self.matrix))
             self.update_idletasks()
             self.update()
+            global currentTilesMatched
+            UpdateReward(currentTilesMatched)
+            currentTilesMatched = 0
 
     def init_grid(self):
         background = Frame(self, bg=BACKGROUND_COLOR_GAME, width=SIZE, height=SIZE)
@@ -103,11 +107,9 @@ class GameGrid(Frame):
                     self.grid_cells[1][1].configure(text="You", bg=BACKGROUND_COLOR_CELL_EMPTY)
                     self.grid_cells[1][2].configure(text="Lose!", bg=BACKGROUND_COLOR_CELL_EMPTY)
 
-
     def bot_down(self, key):
-
-        if GetRandMove() in self.commands:
-            self.matrix, done = self.commands[GetRandMove()](self.matrix)
+        if key in self.commands:
+            self.matrix, done = self.commands[key](self.matrix)
             if done:
                 self.matrix = add_two(self.matrix)
                 self.update_grid_cells()
@@ -129,5 +131,4 @@ class GameGrid(Frame):
 try:
     gamegrid = GameGrid()
 except TclError as eX:
-    print(eX)
-
+    pass
